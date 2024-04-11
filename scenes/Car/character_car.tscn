@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpuel66hhky2n"]
+
+[ext_resource type="Texture2D" uid="uid://ungmu5d8rrsp" path="res://assets/car_blue_3.png" id="1_4ggmu"]
+[ext_resource type="Script" path="res://scenes/Car/character_car.gd" id="1_hc8p8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8kp5s"]
+size = Vector2(112, 170)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2dugp"]
+size = Vector2(62, 128)
+
+[node name="CharacterCar" type="CharacterBody2D"]
+script = ExtResource("1_hc8p8")
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot"]
+texture = ExtResource("1_4ggmu")
+
+[node name="Area2D" type="Area2D" parent="Pivot"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pivot/Area2D"]
+shape = SubResource("RectangleShape2D_8kp5s")
+
+[node name="CharacterCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2dugp")
+
+[node name="Points" type="Label" parent="."]
+offset_left = -51.0
+offset_top = -155.0
+offset_right = 59.0
+offset_bottom = -100.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 40
+text = "Hola!!"
+
+[connection signal="area_entered" from="Pivot/Area2D" to="." method="_on_area_2d_area_entered"]
