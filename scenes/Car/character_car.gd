@@ -12,7 +12,6 @@ func _physics_process(delta):
 	var directionX = Input.get_axis("ui_left", "ui_right")
 	if directionX:
 		velocity.x = directionX * SPEED
-		Node2D
 		$Pivot.rotation_degrees = directionX * 90
 		$CharacterCollision.rotation_degrees = directionX * 90
 	else:
